@@ -6,6 +6,8 @@ public class Enemy : MonoBehaviour
     public float Velocidade;
     [Tooltip("Altura que o objeto irá flutuar.")]
     public float Alcance;
+	[Tooltip("Indicará se é inimigo ou amigo")]
+	public string tipo;
 
     private Vector3 _posicaoInicial;
 
@@ -27,4 +29,5 @@ public class Enemy : MonoBehaviour
     {
         //transform.position = _posicaoInicial + new Vector3(0, (Mathf.Sin(Time.time * Velocidade) + 1) / 2, 0) * Alcance;
     }
+		
 }

@@ -26,8 +26,8 @@ public class PlayerController : MonoBehaviour
         //Inicializamos o Componente Animator para podermos trabalhar com os parametros que criamos.
         animator = GetComponent<Animator>();
         GameOver.enabled = false;
-        _nota = 7.0f;
-        Nota.text = "Nota: " + _nota;
+		_nota = 7.0f;
+		Nota.text = "Nota: " + String.Format("{0:#,##0.0}",_nota);
         _taNoChao = true;
 
     }
@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
 
 		rb.AddForce (new Vector2 (axis * velocidade, 0));
 
-		Tempo.text = "Tempo: " + ConvertTempo(Time.time);
+		Tempo.text = ConvertTempo(Time.time);
 
     }
 
@@ -85,7 +85,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+
+		if (collision.gameObject.CompareTag("Enemy"))
         {
             RemovePontos(collision.gameObject);
 
@@ -101,7 +102,11 @@ public class PlayerController : MonoBehaviour
 
     private void RemovePontos(GameObject gameObject)
     {
-        _nota -= 0.5f;
-        Nota.text = "Nota: " + _nota;
+		float razao_diminuicao = 0.5f;
+
+		if (_nota >= razao_diminuicao) {
+			_nota -= razao_diminuicao;
+		}
+		Nota.text = "Nota: " + String.Format("{0:#,##0.0}",_nota);
     }
 }
