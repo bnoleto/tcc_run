@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Chao
   - AreaDeJogo
+  - UI
   layers:
   - Default
   - TransparentFX
@@ -46,6 +47,9 @@ TagManager:
     locked: 0
   - name: Fundo
     uniqueID: 1927531111
+    locked: 0
+  - name: UI
+    uniqueID: 2556320067
     locked: 0
   - name: Char
     uniqueID: 2463645067
