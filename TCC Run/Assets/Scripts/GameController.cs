@@ -9,7 +9,7 @@ public class GameController : MonoBehaviour
     void Start()
     {
         // Invoca o método SpawnEnemy a cada 5 segundos.
-        Invoke("SpawnEnemy", 5.0f);
+        InvokeRepeating("SpawnEnemy", 5.0f, 5.0f);
     }
 
     /// <summary>
