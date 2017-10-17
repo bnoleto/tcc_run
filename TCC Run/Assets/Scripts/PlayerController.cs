@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.UI;
 using System;
 
@@ -15,7 +14,7 @@ public class PlayerController : MonoBehaviour
 
     public Text GameOver;
     public Text Nota;
-	public Text Tempo;
+    public Text Tempo;
 
     private float _nota;
     private bool _taNoChao;
@@ -26,41 +25,43 @@ public class PlayerController : MonoBehaviour
         //Inicializamos o Componente Animator para podermos trabalhar com os parametros que criamos.
         animator = GetComponent<Animator>();
         GameOver.enabled = false;
-		_nota = 7.0f;
-		Nota.text = "Nota: " + String.Format("{0:#,##0.0}",_nota);
+        _nota = 7.0f;
+        Nota.text = "Nota: " + String.Format("{0:#,##0.0}", _nota);
         _taNoChao = true;
 
     }
 
-	private string ConvertTempo(float segundos){
-		int minutos;
-		string s_minutos, s_segundos;
+    private string ConvertTempo(float segundos)
+    {
+        int minutos;
+        string s_minutos, s_segundos;
 
-		minutos = (int)(segundos / 60);
-		s_minutos = minutos.ToString();
+        minutos = (int)(segundos / 60);
+        s_minutos = minutos.ToString();
 
-		segundos = (int)Time.time - (minutos*60);
-		s_segundos = segundos.ToString();
-	
+        segundos = (int)Time.time - (minutos * 60);
+        s_segundos = segundos.ToString();
 
 
-		return s_minutos.PadLeft(2,'0') + ":" + s_segundos.PadLeft(2,'0');
-	}
+
+        return s_minutos.PadLeft(2, '0') + ":" + s_segundos.PadLeft(2, '0');
+    }
 
     // Executado em sincronismo com a fisica do jogo.
-    void FixedUpdate()
-	{
-		Rigidbody2D rb = GetComponent<Rigidbody2D> ();
+    void Update()
+    {
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
 
-		axis = Input.GetAxis ("Horizontal");
+        axis = Input.GetAxis("Horizontal");
 
-		if (Input.GetButtonDown ("Jump") && _taNoChao == true) {
-			rb.AddForce (new Vector2 (0, force));
-		}
+        if (Input.GetButtonDown("Jump") && _taNoChao == true)
+        {
+            rb.AddForce(new Vector2(0, force));
+        }
 
-		rb.AddForce (new Vector2 (axis * velocidade, 0));
+        rb.AddForce(new Vector2(axis * velocidade, 0));
 
-		Tempo.text = ConvertTempo(Time.time);
+        Tempo.text = ConvertTempo(Time.time);
 
     }
 
@@ -86,7 +87,7 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-		if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             RemovePontos(collision.gameObject);
 
@@ -102,11 +103,12 @@ public class PlayerController : MonoBehaviour
 
     private void RemovePontos(GameObject gameObject)
     {
-		float razao_diminuicao = 0.5f;
+        float razao_diminuicao = 0.5f;
 
-		if (_nota >= razao_diminuicao) {
-			_nota -= razao_diminuicao;
-		}
-		Nota.text = "Nota: " + String.Format("{0:#,##0.0}",_nota);
+        if (_nota >= razao_diminuicao)
+        {
+            _nota -= razao_diminuicao;
+        }
+        Nota.text = "Nota: " + String.Format("{0:#,##0.0}", _nota);
     }
 }
