@@ -17,9 +17,8 @@ public class GameController : MonoBehaviour
     /// </summary>
     private void SpawnEnemy()
     {
-        System.Random rand = new System.Random();
-        int posicao = rand.Next(Inimigos.Count);
-        double altura = (rand.NextDouble() * 5) - 2.5;
+        int posicao = Random.Range(0, Inimigos.Count);
+        double altura = (Random.value * 5) - 2.5;
 
         Instantiate(Inimigos[posicao], new Vector3(15, float.Parse(altura.ToString()), 0), Quaternion.identity);
     }

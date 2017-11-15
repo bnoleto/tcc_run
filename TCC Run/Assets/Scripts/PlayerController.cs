@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     Animator animator;
     float axis;
+    float agachar;
+    BoxCollider2D boxCollider2D;
 
     public float force;
 
@@ -24,6 +26,7 @@ public class PlayerController : MonoBehaviour
     {
         //Inicializamos o Componente Animator para podermos trabalhar com os parametros que criamos.
         animator = GetComponent<Animator>();
+        boxCollider2D = GetComponent<BoxCollider2D>();
         GameOver.enabled = false;
         _nota = 7.0f;
         Nota.text = "Nota: " + String.Format("{0:#,##0.0}", _nota);
@@ -57,6 +60,21 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump") && _taNoChao == true)
         {
             rb.AddForce(new Vector2(0, force));
+        }
+
+        agachar = Input.GetAxis("Vertical");
+
+        if (agachar < 0)
+        {
+            animator.SetBool("Academico", true);
+            boxCollider2D.offset = new Vector2(-0.01722497f, 0.0140816f);
+            boxCollider2D.size = new Vector2(0.3866502f, 0.9360656f);
+        }
+        else
+        {
+            animator.SetBool("Academico", false);
+            boxCollider2D.offset = new Vector2(-0.01722497f, -0.003445029f);
+            boxCollider2D.size = new Vector2(0.3866502f, 1.181442f);
         }
 
         rb.AddForce(new Vector2(axis * velocidade, 0));
