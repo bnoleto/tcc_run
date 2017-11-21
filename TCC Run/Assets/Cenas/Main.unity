@@ -1375,6 +1375,67 @@ PolygonCollider2D:
       - {x: -0.21893808, y: -0.585}
       - {x: 0.24014442, y: -0.58500004}
       - {x: 0.15992373, y: -0.47276086}
+--- !u!1001 &1592007242
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4082460614086398, guid: aa635aef6c537054088dea6fc67956db, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 4.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 4082460614086398, guid: aa635aef6c537054088dea6fc67956db, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4082460614086398, guid: aa635aef6c537054088dea6fc67956db, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4082460614086398, guid: aa635aef6c537054088dea6fc67956db, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4082460614086398, guid: aa635aef6c537054088dea6fc67956db, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4082460614086398, guid: aa635aef6c537054088dea6fc67956db, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4082460614086398, guid: aa635aef6c537054088dea6fc67956db, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4082460614086398, guid: aa635aef6c537054088dea6fc67956db, type: 2}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409684262318906, guid: aa635aef6c537054088dea6fc67956db, type: 2}
+      propertyPath: m_Name
+      value: Aliado1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114493857690824438, guid: aa635aef6c537054088dea6fc67956db,
+        type: 2}
+      propertyPath: tipo
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114493857690824438, guid: aa635aef6c537054088dea6fc67956db,
+        type: 2}
+      propertyPath: valorPontuacao
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114493857690824438, guid: aa635aef6c537054088dea6fc67956db,
+        type: 2}
+      propertyPath: Velocidade
+      value: -15
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: aa635aef6c537054088dea6fc67956db, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1725356596
 GameObject:
   m_ObjectHideFlags: 0

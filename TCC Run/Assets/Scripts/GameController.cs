@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    public List<Enemy> Inimigos;
+    public List<Item> Inimigos;
 
     // Use this for initialization
     void Start()
