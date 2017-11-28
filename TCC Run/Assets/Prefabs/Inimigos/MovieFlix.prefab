@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1409684262318906}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.791655, y: -2.8814442, z: 0}
+  m_LocalPosition: {x: 6.131302, y: 2.447342, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
@@ -75,10 +75,10 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.27}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.72, y: 0.54}
     newSize: {x: 1.42, y: 2.61}
     adaptiveTilingThreshold: 0.5
@@ -99,10 +99,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 716edec2722e787488144a256202bc9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Velocidade: 8
-  Alcance: 0
-  tipo: 1
-  valorPontuacao: 0.5
+  Tipo: 0
+  ValorPontuacao: 1.5
+  ModosDeCombate:
+  - Item: {fileID: 0}
+    Dificuldade: 0
+    EstiloCombate: 0
+    Velocidade: 0
+    VelocidadeRotacaoHorizontal: 0
+    VelocidadeRotacaoVertical: 0
+    Alcance: 0
+  - Item: {fileID: 0}
+    Dificuldade: 1
+    EstiloCombate: 1
+    Velocidade: 7.1
+    VelocidadeRotacaoHorizontal: 0
+    VelocidadeRotacaoVertical: 3
+    Alcance: 1.6
 --- !u!212 &212522028389083666
 SpriteRenderer:
   m_ObjectHideFlags: 1

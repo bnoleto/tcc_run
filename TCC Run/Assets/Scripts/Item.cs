@@ -6,7 +6,8 @@ public class Item : MonoBehaviour
 {
     public TipoItem Tipo;
     
-    public double ValorPontuacao;
+    [Range(0, 10)]
+    public float ValorPontuacao;
 
     [Space]
     [Tooltip("Lista com todos os estilos de movimentação dos obstáculos.\nCaso não tenha nenhum estilo de combate configurado, é executado o modo padrão.")]

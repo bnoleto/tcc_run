@@ -8,6 +8,7 @@ TagManager:
   - Chao
   - AreaDeJogo
   - UI
+  - Ally
   layers:
   - Default
   - TransparentFX

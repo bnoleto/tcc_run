@@ -105,28 +105,30 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (collision.gameObject.CompareTag("Enemy"))
+        AplicaPontos(collision.gameObject);
+
+        Destroy(collision.gameObject);
+
+        if (_nota < 4)
         {
-            RemovePontos(collision.gameObject);
-
-            Destroy(collision.gameObject);
-
-            if (_nota < 4)
-            {
-                GameOver.enabled = true;
-                GameOver.text = "Deu ruim";
-            }
+            GameOver.enabled = true;
+            GameOver.text = "Deu ruim";
         }
     }
 
-    private void RemovePontos(GameObject gameObject)
+    private void AplicaPontos(GameObject gameObject)
     {
-        float razao_diminuicao = 0.5f;
+        Item item = gameObject.GetComponent<Item>();
 
-        if (_nota >= razao_diminuicao)
+        if (gameObject.CompareTag("Enemy"))
         {
-            _nota -= razao_diminuicao;
+            _nota -= item.ValorPontuacao;
         }
+        else if (gameObject.CompareTag("Ally"))
+        {
+            _nota += item.ValorPontuacao;
+        }
+
         Nota.text = "Nota: " + String.Format("{0:#,##0.0}", _nota);
     }
 }

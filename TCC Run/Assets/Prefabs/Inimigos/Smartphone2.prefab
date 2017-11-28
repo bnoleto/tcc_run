@@ -75,10 +75,10 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.14}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.17, y: 0.28}
     newSize: {x: 1.42, y: 2.61}
     adaptiveTilingThreshold: 0.5
@@ -99,10 +99,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 716edec2722e787488144a256202bc9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Velocidade: 8
-  Alcance: 0
-  tipo: 1
-  valorPontuacao: 0.20000000298023224
+  Tipo: 0
+  ValorPontuacao: 0.8
+  ModosDeCombate:
+  - Item: {fileID: 0}
+    Dificuldade: 0
+    EstiloCombate: 0
+    Velocidade: 5.4
+    VelocidadeRotacaoHorizontal: 0
+    VelocidadeRotacaoVertical: 0
+    Alcance: 0
+  - Item: {fileID: 0}
+    Dificuldade: 0
+    EstiloCombate: 0
+    Velocidade: 7.5
+    VelocidadeRotacaoHorizontal: 0
+    VelocidadeRotacaoVertical: 0
+    Alcance: 0
+  - Item: {fileID: 0}
+    Dificuldade: 1
+    EstiloCombate: 1
+    Velocidade: 7.5
+    VelocidadeRotacaoHorizontal: 0
+    VelocidadeRotacaoVertical: 4
+    Alcance: 1.5
 --- !u!212 &212522028389083666
 SpriteRenderer:
   m_ObjectHideFlags: 1
