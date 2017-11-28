@@ -99,10 +99,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 716edec2722e787488144a256202bc9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Velocidade: 8.2
-  Alcance: 0
-  tipo: 1
-  valorPontuacao: 1
+  Tipo: 1
+  ValorPontuacao: 1.7999999523162842
+  ModosDeCombate:
+  - Item: {fileID: 0}
+    Dificuldade: 0
+    EstiloCombate: 1
+    Velocidade: 0
+    VelocidadeRotacaoHorizontal: 0
+    VelocidadeRotacaoVertical: 0
+    Alcance: 0
 --- !u!212 &212522028389083666
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -1,56 +1,48 @@
-﻿using Assets.Scripts.Enums;
+﻿using Classes;
+using Enums;
 using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    [Tooltip("Velocidade da animação.")]
-    [Range(5, 30)]
-    public float Velocidade;
-    [Tooltip("Altura que o objeto irá flutuar.")]
-    public float Alcance;
-    [Tooltip("Indicará se é inimigo ou amigo")]
-    public TipoItem tipo;
-    [Tooltip("Valor que o item irá afetar a pontuação do jogador.")]
-    [Range(0, 10)]
-    public double valorPontuacao;
+    public TipoItem Tipo;
+    
+    public double ValorPontuacao;
+
+    [Space]
+    [Tooltip("Lista com todos os estilos de movimentação dos obstáculos.\nCaso não tenha nenhum estilo de combate configurado, é executado o modo padrão.")]
+    public Movimentacao[] ModosDeCombate;
 
     private Vector3 _posicaoInicial;
+    /// <summary>
+    /// Modo de combate escolhido.
+    /// </summary>
+    private int _escolhido;
+
+    private void Start()
+    {
+        // Caso não contenha nenhum estilo definido, um estilo padrão é adicionado.
+        if (ModosDeCombate.Length == 0)
+            ModosDeCombate = new Movimentacao[] { new Movimentacao(this.gameObject, EstiloCombate.Padrao) };
+        else
+            foreach (var combate in ModosDeCombate)
+            {
+                combate.Item = this.gameObject;
+            }
+
+        _escolhido = Random.Range(0, ModosDeCombate.Length);
+        ModosDeCombate[_escolhido].InicializarMovimentacao();
+    }
+
+    private void Update()
+    {
+        ModosDeCombate[_escolhido].Mover();
+    }
 
     private void OnTriggerExit2D(Collider2D colisor)
     {
         if (colisor.gameObject.CompareTag("AreaDeJogo"))
         {
             Destroy(this.gameObject);
-        }
-    }
-
-    private void Start()
-    {
-        GetComponent<Rigidbody2D>().velocity = new Vector2(Velocidade * -1, 0);
-        //_posicaoInicial = transform.position;
-    }
-
-    private void Update()
-    {
-        if (Time.time > 150)
-        {
-            transform.position = new Vector2(transform.position.x, Mathf.Cos(Time.time * 12) * 2.5f);
-        }
-        else if (Time.time > 120)
-        {
-            transform.position = new Vector2(transform.position.x, Mathf.Cos(Time.time * 10) * 2.5f);
-        }
-        else if (Time.time > 90)
-        {
-            transform.position = new Vector2(transform.position.x, Mathf.Cos(Time.time * 5) * 2.5f);
-        }
-        else if (Time.time > 60)
-        {
-            transform.position = new Vector2(transform.position.x, Mathf.Cos(Time.time * 3) * 2.5f);
-        }
-        else if (Time.time > 30)
-        {
-            transform.position = new Vector2(transform.position.x, Mathf.Cos(Time.time * 2) * 2.5f);
         }
     }
 
