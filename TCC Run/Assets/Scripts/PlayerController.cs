@@ -20,6 +20,9 @@ public class PlayerController : MonoBehaviour
 
     private float _nota;
     private bool _taNoChao;
+    private float _tempoInicio;
+
+    public GameController gameController;
 
     // Use this for initialization
     void Start()
@@ -31,7 +34,8 @@ public class PlayerController : MonoBehaviour
         _nota = 7.0f;
         Nota.text = "Nota: " + String.Format("{0:#,##0.0}", _nota);
         _taNoChao = true;
-
+        _tempoInicio = Time.time;
+        print(_tempoInicio);
     }
 
     private string ConvertTempo(float segundos)
@@ -42,10 +46,8 @@ public class PlayerController : MonoBehaviour
         minutos = (int)(segundos / 60);
         s_minutos = minutos.ToString();
 
-        segundos = (int)Time.time - (minutos * 60);
+        segundos = (int)segundos - (minutos * 60);
         s_segundos = segundos.ToString();
-
-
 
         return s_minutos.PadLeft(2, '0') + ":" + s_segundos.PadLeft(2, '0');
     }
@@ -57,7 +59,7 @@ public class PlayerController : MonoBehaviour
 
         axis = Input.GetAxis("Horizontal");
 
-        if (Input.GetButtonDown("Jump") && _taNoChao == true)
+        if (Input.GetButtonDown("Jump") && _taNoChao == true && agachar >= 0)
         {
             rb.AddForce(new Vector2(0, force));
         }
@@ -79,7 +81,9 @@ public class PlayerController : MonoBehaviour
 
         rb.AddForce(new Vector2(axis * velocidade, 0));
 
-        Tempo.text = ConvertTempo(Time.time);
+        if (!gameController.reprovado.activeSelf)
+            Tempo.text = ConvertTempo(Time.time - _tempoInicio);
+        
 
     }
 
@@ -113,12 +117,14 @@ public class PlayerController : MonoBehaviour
         {
             GameOver.enabled = true;
             GameOver.text = "Deu ruim";
+            gameController.GameOver();
         }
     }
 
     private void AplicaPontos(GameObject gameObject)
     {
         Item item = gameObject.GetComponent<Item>();
+
 
         if (gameObject.CompareTag("Enemy"))
         {
@@ -128,6 +134,9 @@ public class PlayerController : MonoBehaviour
         {
             _nota += item.ValorPontuacao;
         }
+
+        if (_nota > 10)
+            _nota = 10;
 
         Nota.text = "Nota: " + String.Format("{0:#,##0.0}", _nota);
     }

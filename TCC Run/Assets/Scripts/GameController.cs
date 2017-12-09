@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -10,11 +11,24 @@ public class GameController : MonoBehaviour
     [Range(0, 100)]
     public float chanceAliado;
 
+    public GameObject reprovado;
+
     // Use this for initialization
     void Start()
     {
+
         // Invoca o método SpawnEnemy a cada 5 segundos.
         InvokeRepeating("SpawnItem", 5.0f, 5.0f);
+        reprovado.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (Input.GetButtonDown("Jump") && reprovado.activeSelf)
+        {
+            SceneManager.UnloadSceneAsync(1);
+            SceneManager.LoadScene("menu_principal");
+        }
     }
 
     /// <summary>
@@ -41,5 +55,12 @@ public class GameController : MonoBehaviour
             Instantiate(Aliados[posicao], new Vector3(15, float.Parse(altura.ToString()), 0), Quaternion.identity);
             Instantiate(Inimigos[posicao2], new Vector3(15, float.Parse(altura2.ToString()), 0), Quaternion.identity);
         }
+    }
+
+    public void GameOver()
+    {
+        CancelInvoke("SpawnItem");
+        reprovado.SetActive(true);
+        //Time.timeScale = 0;
     }
 }

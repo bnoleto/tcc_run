@@ -99,8 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 716edec2722e787488144a256202bc9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Tipo: 0
-  ValorPontuacao: 0.5
+  Tipo: 1
+  ValorPontuacao: 1.2
   ModosDeCombate:
   - Item: {fileID: 0}
     Dificuldade: 0
@@ -119,7 +119,7 @@ MonoBehaviour:
   - Item: {fileID: 0}
     Dificuldade: 1
     EstiloCombate: 0
-    Velocidade: 6.7
+    Velocidade: 8.2
     VelocidadeRotacaoHorizontal: 0
     VelocidadeRotacaoVertical: 2
     Alcance: 1.8

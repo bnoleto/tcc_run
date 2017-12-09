@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 716edec2722e787488144a256202bc9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Tipo: 0
+  Tipo: 1
   ValorPontuacao: 1.5
   ModosDeCombate:
   - Item: {fileID: 0}

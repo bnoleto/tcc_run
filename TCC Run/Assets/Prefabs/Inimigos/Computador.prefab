@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Tipo: 1
-  ValorPontuacao: 2
+  ValorPontuacao: 1.1
   ModosDeCombate:
   - Item: {fileID: 0}
     Dificuldade: 0
